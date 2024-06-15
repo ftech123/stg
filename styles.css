@@ -1,0 +1,70 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f9f9f9;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.diamond-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    position: relative;
+}
+
+.diamond {
+    width: 20%;
+    padding-bottom: 20%;
+    position: absolute;
+    transform: rotate(45deg);
+    overflow: hidden;
+}
+
+.diamond img {
+    position: absolute;
+    width: 141.42%;
+    height: 141.42%;
+    top: -20.71%;
+    left: -20.71%;
+    object-fit: cover;
+    transform: rotate(-45deg);
+}
+
+.center-diamond {
+    width: 30%;
+    padding-bottom: 30%;
+}
+
+.diamond:nth-child(1) {
+    top: 25%;
+    left: 50%;
+    transform: translate(-150%, -50%) rotate(45deg);
+}
+
+.diamond:nth-child(2) {
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -150%) rotate(45deg);
+}
+
+.center-diamond {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.diamond:nth-child(4) {
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.diamond:nth-child(5) {
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+}

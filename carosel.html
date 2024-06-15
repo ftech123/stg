@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Emphasis with Agenda</title>
+    <style>
+
+
+        .container_fact {
+            display: flex;
+            align-items: center;
+            background: #dcc5a2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 1200px;
+            position: relative;
+            overflow: visible; /* Ensures the overflow is visible */
+        }
+
+        .image-div {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+            margin-left: -50px; /* Negative margin to move the image left */
+            margin-top: -50px; /* Negative margin to move the image up */
+            z-index: 1; /* Ensures the image is on top */
+        }
+
+        .image-div img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for emphasis */
+        }
+
+        .agenda-div {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #D99530;
+            border-radius: 10px;
+            margin-right: -50px; /* Negative margin to move the agenda right */
+            margin-bottom: -310px; /* Increased negative margin to move the agenda down further */
+            z-index: 1; /* Ensures the agenda is on top */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for emphasis */
+        }
+
+        .agenda-div ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .agenda-div li {
+            margin: 10px 0;
+            font-size: 1.5em; /* Increased font size */
+            display: flex;
+            align-items: center;
+        }
+
+        .agenda-div i {
+            margin-right: 10px;
+            color: #555;
+            font-size: 1.5em; /* Match icon size with text */
+        }
+    </style>
+</head>
+<body>
+    <div class="container_fact">
+        <div class="image-div">
+            <img src="https://letsenhance.io/static/8f5e523ee6b2479e26ecc91b9c25261e/1015f/MainAfter.jpg" alt="Main Image">
+        </div>
+        <div class="agenda-div">
+            <ul>
+                <li><i class="fas fa-cogs"></i> Skill oriented</li>
+                <li><i class="fas fa-balance-scale"></i> Discipline</li>
+                <li><i class="fas fa-paint-brush"></i> Creativity</li>
+                <li><i class="fas fa-school"></i> Quality Education</li>
+                <li><i class="fas fa-hands-helping"></i> Support</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

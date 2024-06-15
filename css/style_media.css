@@ -1,0 +1,364 @@
+.container1 {
+    position: relative;
+    display: inline-block;
+}
+
+.img-layered {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 3;
+}
+
+.container1::before,
+.container1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    z-index: 1;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.container1::before {
+    background-color: #D4A762; /* Red layer */
+    transform: translate(-15px, -15px);
+    z-index: 2;
+}
+
+.container1::after {
+    background-color: #d99530; /* Blue layer */
+    transform: translate(15px, 15px);
+    z-index: 1;
+}
+
+.container1:hover .img-layered {
+    transform: translateY(-10px);
+}
+
+.container1:hover::before {
+    transform: translate(-20px, -20px);
+    box-shadow: 0 20px 40px #322006;
+}
+
+.container1:hover::after {
+    transform: translate(20px, 20px);
+    box-shadow: 0 20px 40px #dacab1;
+}
+/* fact content */
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.container_fact {
+    display: flex;
+    align-items: center;
+    background: #D99530;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 1200px;
+    position: relative;
+    overflow: visible; /* Ensures the overflow is visible */
+    animation: fadeIn 1s ease-in-out;
+}
+
+.image-div {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    margin-right: -50px; /* Negative margin to move the image right */
+    margin-top: -50px; /* Negative margin to move the image up */
+    z-index: 1; /* Ensures the image is on top */
+    animation: slideInFromRight 1s ease-in-out;
+}
+
+.image-div img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for emphasis */
+}
+
+.agenda-div {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #dcc5a2;
+    border-radius: 10px;
+    margin-left: -50px; /* Negative margin to move the agenda left */
+    margin-bottom: -310px; /* Increased negative margin to move the agenda down further */
+    z-index: 1; /* Ensures the agenda is on top */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add some shadow for emphasis */
+    animation: slideInFromLeft 1s ease-in-out;
+}
+
+.agenda-div ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.agenda-div li {
+    margin: 10px 0;
+    font-size: 1.5em; /* Increased font size */
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+
+.agenda-div i {
+    margin-right: 10px;
+    color: #555;
+    font-size: 1.5em; /* Match icon size with text */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(225, 220, 220, 0.1);
+    transition: transform 0.3s ease;
+    background: linear-gradient(45deg, #e3dfd9, #d0bfa9, #dfc3a6, #d99d7a, #d88352, #d86523);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0) 70%), 
+                linear-gradient(45deg, #e3dfd9, #d0bfa9, #dfc3a6, #d99d7a, #d88352, #d86523);
+    animation: gradientAnimation 15s ease infinite;
+    perspective: 1000px;
+    height: 300px; /* Adjust height as needed */
+    margin-bottom: 20px;
+}
+
+/* Keyframes for animation (optional) */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.card:hover {
+    transform: translateY(10px);
+}
+
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.card-overlay {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    transition: bottom 0.3s ease;
+}
+
+.card:hover .card-overlay {
+    bottom: 0;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.offer-text {
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.card:hover .offer-text {
+    opacity: 0;
+}
+
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-front {
+    background: #f2f2f2;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    background: #eaeaea;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-back h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card-back p {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* Unique class names */
+.card1 .card-front {
+    background-color: #D4A762; 
+}
+
+.card2 .card-front {
+    background-color: #D4A762; 
+}
+
+.card3 .card-front {
+    background-color: #D4A762; 
+}
+
+.card4 .card-front {
+    background-color: #D4A762; 
+}
+
+/* icons */
+/* Main container for positioning */
+.social-icons-container {
+    position: fixed;
+    top: 50%;
+    left: 20px; /* Adjust left position as needed */
+    transform: translateY(-50%);
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+/* Button to show social icons */
+.show-icons-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px; /* Increased padding for larger hit area */
+    background-color: #D4A762; /* Blue background color for menu button */
+    color: #000000; /* White text color */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for background */
+}
+
+.show-icons-btn:hover {
+    background-color: #d86523; /* Darker shade of blue on hover */
+}
+
+/* Social icons container */
+.social-icons {
+    display: none;
+    position: absolute;
+    bottom: 40px; /* Adjust bottom position to move icons up */
+    left: 50%; /* Center icons horizontally */
+    transform: translateX(-50%) translateY(-100%); /* Initially move icons above the button */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff; /* White background for icons container */
+    transition: transform 0.3s ease; /* Smooth transition for visibility */
+}
+
+.show-icons-btn:hover + .social-icons,
+.social-icons:hover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-50%) translateY(0); /* Move icons down to be visible */
+}
+
+/* Style for individual social icons */
+.share-link {
+    font-size: 24px; /* Increase icon size */
+    color: #333; /* Adjust icon color */
+    margin: 5px 0; /* Adjust spacing between icons */
+    transition: transform 0.3s ease; /* Smooth transition for scale */
+}
+
+.share-link:hover {
+    transform: scale(1.2); /* Scale up icon on hover */
+}
+
+/* social */
+        .social-media-icons {
+            display: flex;
+            gap: 15px;
+        }
+        .social-media-icons a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .social-media-icons i {
+            font-size: 2em;
+        }
+        .fa-facebook { color: #3b5998; }
+        .fa-instagram { color: #e1306c; }
+        .fa-linkedin { color: #0077b5; }
+        .fa-youtube { color: #ff0000; }
+        .fa-whatsapp { color: #25d366; }
+        .fa-telegram { color: #0088cc; }
